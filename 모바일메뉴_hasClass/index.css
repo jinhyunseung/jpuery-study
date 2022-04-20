@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul, li{
+    list-style: none;
+}
+#wrap{
+    width: 100%;
+    height: 100vh;
+    background-color: teal;
+}
+/*   pc header   */
+@media all and (min-width:960px) {
+    #pc_menu{
+        width: 100%;
+        height: 80px;
+        background-color: steelblue;
+    }
+    #pc_menubox{
+        width: 960px;
+        height: 80px;
+        margin: 0 auto;
+    }
+    .pc_topmenu{
+        width: calc(960px / 5);
+        float: left;
+        line-height: 80px;
+        text-align: center;
+    }
+    .pc_submenu{
+        background-color: turquoise;
+        line-height: 50px;
+        display: none;
+    }
+    .pc_topmenu:hover .pc_submenu{
+        display: block;
+    }
+    #m_menu{
+        display: none;
+    }
+}
+/*   mobile header   */
+@media all and (max-width: 959px) {
+    #pc_menu{
+        display: none;
+    }
+    #m_menu{
+        width: 80%;
+        overflow: hidden;
+        background-color: thistle;
+        float: right;
+        position: relative;
+    }
+    button{
+        width: 80px;
+        height: 50px;
+        float: right;
+        background-color: slategrey;
+    }
+    #m_menubox{
+        width: 100%;
+        overflow: hidden;
+        position: fixed;
+        top: 50px;
+        left: 100%;
+        background-color: lightcoral;
+    }
+    .m_topmenu{
+        width: 100%;
+        min-height: 80px;
+        border-bottom: 1px solid white;
+        box-sizing: border-box;
+        line-height: 80px;
+    }
+    .m_submenu{
+        width: 100%;
+        display: none;
+    }
+    .m_submenu>li{
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        background-color: lightpink;
+    }
+    /*addClass / removeClass => css에 속성값이 있어야함*/
+    .m_submenu.on{
+        display: block;
+    }
+}

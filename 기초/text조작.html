@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 객체조작 메서드
+            // 1. html();
+            // $('선택자').html('문자열');
+            // => 선택자의 하위 요소를 가져와 문자열로 반환
+
+            // 2. text();
+            // $('선택자').text('문자열');
+            // => 선택한 요소의 text를 가져옴
+
+            let getTag=$('#getTag').html();
+            let getText=$('#getText').text();
+
+            $('#getTag').html('hrml메서드'+'<br><a href=\'#\'> html메서드 타이틀 수정</a>')
+            // => 선택자의 하위요소 전부 제거 후 지정한 새 요소를 생성
+
+            $('#getText').text('text메서드타이틀수정')
+            // => 선택자의 하위요소 전부 제거 후 지정한 텍스트를 생성
+
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="getTag">
+        <h3>html 메서드</h3>
+        <span>123456789</span>
+    </div>
+
+    <div id="getText">
+        <h3>text 메서드</h3>
+        <span>123456789</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // attr();
+            // => 태그의 옵션을 추가하거나 변경해 주는 이벤트
+            // 1. $('선택자').attr('단일속성','속성값');
+            // 2. $('선택자').attr('단일속성',function(){
+            // });
+            // 3. $('선택자').attr({
+            //     속성: 속성값,
+            //     속성: 속성값,
+            //     속성: 속성값,
+            //     ....
+            // });
+            // 4. $('선택자').attr({
+            //     속성: 속성값
+            //     속성: function(){
+            //         ...
+            //     }
+            // });
+                // 제거할때
+            //removeAttr('속성명');
+
+            $('#box').css({
+                width: 500,
+                height: 500,
+                backgroundColor: 'red',
+            });
+            $('#box>img').attr({
+                border: '10px solid black'
+            });
+            $('#box').click(function(){
+                 $('#box>img').removeAttr('border','10px solid black');
+            });
+           
+
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="box">
+        <img src="배경1.jpg" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let bg=['red','yellow','green','blue','wheat'];
+            $('.box').css({
+                backgroundColor: function(index){
+                    return bg[index];
+                }
+            })
+            // 이벤트 실행
+            // eq() / 함수 / 자동실행 / 마우스 올리면 멈추기
+            // fadeIn / fadeOut
+            let i=0;
+            $('#next').click(function(){
+                
+                if(i>4){
+                    i=0;
+                }
+                console.log(i);
+                // 함수활용
+                imgMove();
+                i++;
+            });
+            // 내가 클릭한 i번째 요소는 보이고 나머지는 사라져야 함
+            // function 함수이름(){
+            //     실행식
+            // }
+            function imgMove(){
+                $('.box').fadeOut();
+                $('.box').eq(i).fadeIn();
+            }
+
+            $('#prev').click(function(){
+                
+                if(i<0){
+                    i=4;
+                }
+                imgMove();
+                i--;
+            });
+            // 3초마다 자동 next
+            function time(){
+                // let을 생략해야 전역변수로 사용 가능
+              auto=setInterval(function(){
+                // $('#next').trigger('click');
+                $('#next').click();
+            }, 3000);  
+            }
+            time();
+            
+            // 마우스를 올리면 자동 next 종료, 벗어나면 다시 실행
+            $('#mask').hover(function(){
+                clearInterval(auto);
+            },function(){
+                time();
+            });
+
+
+        });//end
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #mask{
+            width: 600px;
+            height: 400px;
+            border: 5px solid black;
+            margin: 100px auto;
+            position: relative;
+        }
+        .box{
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            font-size: 100px;
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* display: none; */
+        }
+        .btn{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            font-size: 50px;
+            text-align: center;
+            line-height: 80px;
+            transform: translateY(-50%);
+            top: 50%;
+            background-color: whitesmoke;
+            z-index: 1;
+        }
+        #prev{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="mask">
+        <div class="btn" id="prev">←</div>
+        <div class="btn" id="next">→</div>
+
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+</body>
+</html>

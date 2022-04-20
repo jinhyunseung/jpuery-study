@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        // 가로세로 300 / 배경색 / 폰트굵기 / 폰트 사이즈 / 텍스트 가로세로 중앙정렬
+        // div => animate / left 600 다시 0 돌아오게 / 4초동안 / 가속도추가 / 계속반복 setInterval 왕복 8초
+        $(document).ready(function(){
+            $('#box').css({
+                width: 300,
+                height: 300,
+                backgroundColor: '#f5f3f0',
+                fontSize: '18px',
+                fontWeight: 900,
+                textAlign: 'center',
+                lineHeight: '300px',
+                position: 'absolute' // 위치값이 있어야 움직임
+            });
+        
+            a();
+
+            function a(){
+            $('#box').animate({
+                    left: 600,
+                }, 4000, 'easeInOutBounce', function(){
+                    $('#box').animate({
+                        left: 0,
+                    }, 4000, 'easeInOutBounce')
+                });   
+            }
+
+            setInterval(function(){
+
+                a();
+
+
+            }, 8000);
+                
+    
+        });//end
+
+    </script>
+    
+</head>
+<body>
+    <div id="box">으아아아아</div>
+</body>
+</html>

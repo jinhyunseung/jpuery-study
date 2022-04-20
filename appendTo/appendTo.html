@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendTo</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+
+            // 1.appendTo
+            // => 객체를 맨 뒤로 보내줌
+            // $('선택자').appendTo('보내고 싶은 위치');
+
+            // 2.prependTo
+            // => 객체를 맨 앞으로 보내줌
+            // $('선택자').prependTo('보내고 싶은 위치');
+            setInterval(function(){
+                $('.box:first').appendTo('.img_wrap');     
+            }, 1000);
+               
+            
+        });//end
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        .img_wrap{
+            width: 1700px;
+            height: 340px;
+
+        }
+        .box{
+            width: 340px;
+            height: 340px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="img_wrap">
+        <div class="box"><img src="시계1.jpg" alt="1"></div>
+        <div class="box"><img src="시계2.jpg" alt="2"></div>
+        <div class="box"><img src="시계3.jpg" alt="3"></div>
+        <div class="box"><img src="시계4.jpg" alt="4"></div>
+        <div class="box"><img src="시계5.jpg" alt="5"></div>
+    </div>
+</body>
+</html>

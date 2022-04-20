@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            // animate
+            // css속성 중에서 크기, 위치, 여백, 색상을 지정 시간동안 변화 시키는 명령
+            // $('선택자').animate({
+            //     변화시킬 css속성값
+            //     속성: 속성값,
+            //     속성: 속성값,
+            //     속성: 속성값,
+            //     속성: 속성값,
+            // }, 시간, 가속도, 콜백함수); 
+            //가속도와 콜백함수는 생략가능
+            //콜백함수는 animate식이 끝난 후 실행하는 식
+
+            // 사용가능 속성
+            // 1) 크기값 width, height
+            // 2) 여백값 margin, padding
+            // 3) 위치값 top, bottom, left, right (position값 반드시 작성)
+            // 4) 배경색상, 투명도
+/*
+            $('#box').animate({
+                left: 500,
+            }, 3000, 'easeInOutBounce', function(){
+                $('#box').delay(5000).animate({ //delay 시간지연 가능
+                    left: 0
+                }, 3000) 
+            });
+             // 가속도 => jquery ui 플러그인 필요
+*/
+
+
+            // box를 클릭하면 가로1000으로 2초동안 커지게 하시오
+            $('#box').click(function(){
+                $(this).animate({
+                    width: 1000
+                }, 2000)
+            });
+            
+
+
+        });//end
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 400px;
+            height: 400px;
+            background-color: turquoise;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 400px;
+            font-weight: 900;
+            font-size: 50px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        나는 움직여요
+    </div>
+</body>
+</html>

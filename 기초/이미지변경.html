@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#box').css({
+                width: 275,
+                height: 183,
+            });
+            $('#box>img').css({
+                width: '100%',
+                height: '100%',
+                display: 'block'
+            });
+            // $('#box').click(function(){
+            //     $('#box>img').attr({
+            //         src: '배경2.jpg'
+            //     })
+            // });
+            let i=0;
+
+            $('#box').click(function(){
+                if(i==0){
+                    $('#box>img').attr({
+                     src: '배경2.jpg',  
+                 });
+                i++
+                }else if(i==1){
+                    $('#box>img').attr({
+                     src: '배경1.jpg',  
+                 });
+                i--
+                }
+            });
+
+
+
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="box">
+        <img src="배경1.jpg" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동전뒤집기</title>
+    <script src="jquery-3.6.0.js"></script> <!-- 기본 플러그인이 항상 위에-->
+    <script src="jquery-ui.js"></script> <!-- 자주 쓰이는 플러그인이 상위에-->
+    <script src="jquery.transit.min.js"></script>
+    <script>
+        $(function(){
+            
+            //transform
+            // $('선택자').transition({
+
+            // });
+
+            // box를 클릭하면~
+            // $('#box').click(function(){
+            //     $('#box').transition({
+            //         rotate: '360deg',
+            //         scale: '0.5',
+            //         x: 300,
+            //         y: 300
+            //     })
+            // });
+
+            // box에 마우스를 올리고 내리면~
+            // 중첩모션을 끊어줘야함 => .stop() 
+            // $('#box').hover(function(){
+            //     $('#box').stop().transition({
+            //         skewX: '150deg'
+            //     });
+            // },function(){
+            //     $('#box').stop().transition({
+            //         skewX: '0deg'
+            //     });
+            // });
+            
+            //동전 뒤집기
+            $('.coin').hover(function(){
+                $('#coinF').stop().transition({
+                    rotateY: '180deg',
+                    opacity: 0
+                }, 500);
+                $('#coinB').stop().transition({
+                    rotateY: '0deg',
+                    opacity: 1
+                }, 500);
+            },function(){
+                $('#coinB').stop().transition({
+                    rotateY: '180deg',
+                    opacity: 0
+                }, 500);
+                $('#coinF').stop().transition({
+                    rotateY: '0deg',
+                    opacity: 1
+                }, 500);
+            });
+
+        });//end
+    </script>
+    <style>
+        /* #box{
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: tomato;
+        } */
+        #coin_wrap{
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .coin{
+             width: 600px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 300px;
+            text-align: center;
+            line-height: 600px;
+            font-weight: 900;
+            font-size: 100px;
+        }
+        #coinF{
+            background-color: thistle;
+        }
+        #coinB{
+            background-color: lightpink;
+            opacity: 0;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="box"></div> -->
+    <div id="coin_wrap">
+        <div class="coin" id="coinF">앞면</div>
+        <div class="coin" id="coinB">뒷면</div>
+    </div>
+    
+</body>
+</html>

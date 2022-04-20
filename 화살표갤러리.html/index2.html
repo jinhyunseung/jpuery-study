@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위아래 슬라이드</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let bg=['red','yellow','green','blue','gray'];
+
+        $('.img').css({
+            backgroundColor: function(index){
+                return bg[index];
+            }
+        });
+
+            let click=0;
+            let i=500;
+            $('#next').click(function(){
+                click++;
+                if(click>4){
+                    click=0;
+                }
+                $('#wrap').animate({
+                    bottom: i*click,
+                }, 500);
+            });
+            $('#prv').click(function(){
+                click--;
+                if(click<0){
+                    click=0;
+                }
+                $('#wrap').animate({
+                    bottom: i*click,
+                }, 500);
+            });
+
+            // 이벤트를 사용자가 발생시키는 것 처럼
+            // => 강제 이벤트 실행 명령
+            // trigger
+            // $('선택자').trigger('이벤트명');
+
+            setInterval(function(){
+                $('#next').trigger('click');
+            }, 1000);
+
+
+        });//end
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #mask{
+            width: 600px;
+            height: 600px;
+            border: 5px solid black;
+            position: relative;
+            margin: 100px auto;
+            
+        }
+        #img_wrap{
+            width: 600px;
+            height: 2500px;
+            position: relative;
+            top: 0;
+            left: 0;
+            
+        }
+        #wrap{
+            width: 600px;
+            height: 500px;
+            position: relative;
+            
+        }
+        .img{
+            width: 600px;
+            height: 500px;
+            text-align: center;
+            line-height: 500px;
+            font-size: 50px;
+            font-weight: 900;
+            color: white;
+            position: relative;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            z-index: 1;
+            background-color: #333;
+            color: white;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+        #prv{
+            top: 0;
+        }
+        #next{
+            bottom: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="mask">
+
+        <div class="btn" id="prv">↑</div>
+        <div id="wrap">
+         <div id="img_wrap">
+            <div class="img">1</div>
+            <div class="img">2</div>
+            <div class="img">3</div>
+            <div class="img">4</div>
+            <div class="img">5</div>
+         </div>
+        </div>
+        <div class="btn" id="next">↓</div>
+        
+
+    </div>
+</body>
+</html>

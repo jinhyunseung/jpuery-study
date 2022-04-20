@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머함수</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            // jquery는 화살표 함수 x
+            /*
+            1. 일정시간 이후에 한 번만 실행 
+            setTimeout(function(){
+                실행식
+            }, 시간);
+
+            2. 일정시간마다 반복 실행
+            setInterval(function(){
+                실행식
+            }, 시간);
+
+            3.함수중단
+            clearInterval();
+            */
+
+            setTimeout(function(){
+                document.write('한번만 실행됩니다.<br>')
+            }, 3000);
+
+            let banboc=setInterval(function(){
+                document.write('반복 실행됩니다.<br>')
+            }, 1000);
+
+            setTimeout(function(){
+                clearInterval(banboc);
+            }, 5000);
+            
+
+        });//end
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

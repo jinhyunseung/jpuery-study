@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event연결하기</title>
+    <script src="jquery-3.6.0.js"></script> <!-- 항상 제일 먼저 연결 -->
+    <script>
+        // 1. 제이쿼리 기본문법
+        $(document).ready(function(){
+            // 2. 선택자 box에게 줄 속성값 => 가로 세로 400 배경색 아무거나, 외부여백 아래쪽 20 
+            //  테두리 실선 검정 5px 텍스트 가로세로 중앙 정렬
+            $('.box').css({
+                width: 400,
+                height: 400,
+                marginBottom: 20,
+                border: '5px solid black', 
+                textAlign: 'center',
+                // 텍스트 관련 속성값은 단위값 생략 불가
+                lineHeight: 400+'px',
+                backgroundColor: '#f5f3f0'
+            });
+
+            // 마우스 이벤트
+            // 1. click
+            // 2. mousemove
+            // 3. mouseenter
+            // 4. mouseleave
+            // 5, mouseout
+            // 6. mouseup
+            // 7. mousedown
+            // 8. hover(자바스크립트 x, 제이쿼리 o)
+
+            //이벤트 연결 명령
+            //1) on : 핸들러 역할 addEventListener랑 비슷
+            // $('선택자').on({
+            //     이벤트명: function(){},
+            //     이벤트명: function(){},
+            // });
+            
+            // box1 => click
+            // 가로세로 500, 배경색 빨강
+            $('#box1').on({
+                click: function(){
+                    $('#box1').css({
+                        width: 500,
+                        height: 500,
+                        backgroundColor: 'red'
+                    });
+                }
+            });
+
+            //2) 선택자에게 바로 연결
+            // $('선택자').이벤트명(function(){
+            //     실행 식
+            // });
+
+            $('#box2').mouseenter(function(){
+                $('#box2').css({
+                    backgroundColor: 'green'
+                })
+            });
+            $('#box2').mouseleave(function(){
+                $('#box2').css({
+                    backgroundColor: '#f5f3f0'
+                })
+            });
+
+
+            //3) hover활용
+            //$('선택자').hover(function(){mouseenter에 대한 식}, function(){mouseleave에대한 식});
+            // 나 자신이 바뀔때는 this사용 가능
+            // $(this).css ~~~ 
+            $('#box3').hover(function(){
+                $('#box3').css({
+                    backgroundColor: 'wheat'
+                })
+            },
+                function(){
+                    $('#box3').css({
+                        backgroundColor: '#f5f3f0'
+                    })
+                }
+            );
+
+
+
+        });//end
+       
+
+    </script>
+</head>
+<body>
+    <div class="box" id="box1">첫번째</div>
+    <div class="box" id="box2">두번째</div>
+    <div class="box" id="box3">세번째</div>
+</body>
+</html>

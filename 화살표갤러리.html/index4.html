@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무한갤러리</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let bg=['red','yellow','green','blue','wheat'];
+            $('.box').css({
+                backgroundColor: function(index){
+                    return bg[index];
+                }
+            });
+
+            //이벤트 생성
+            // click=>animation
+            // appendTo / prependTo
+            // trigger / setInterval / hover / clearInterval
+            
+            // .box의 가로값 변수 저장
+            let boxWidth=$('.box').width();
+            
+            $('#next').click(function(){
+                $('#box_wrap').animate({
+                    left: -boxWidth
+                }, 500, function(){
+                    $('#box_wrap').css({
+                        left: 0, //좌표를 왼쪽 끝으로 옮겨줌
+                    }).find('.box:first').appendTo('#box_wrap');
+                });
+            });
+
+            $('#prev').click(function(){
+                $('#box_wrap').css({
+                    left: -boxWidth
+                }, 500, function(){
+                    $('#box_wrap').animate({
+                        left: 0, 
+                    }).find('.box:last').prependTo('#box_wrap');
+                });
+            });
+            
+            auto();
+            function auto(){
+                a=setInterval(function(){ // 변수로 변환
+                    $('#next').trigger('click');
+                }, 1000);
+            }
+            
+
+            $('#mask').hover(function(){
+                clearInterval(a); // 변수가 들어가야함
+            },function(){
+                auto();
+            });
+        });//end
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #mask{
+            width: 800px;
+            height: 400px;
+            border: 5px solid black;
+            margin: 100px auto;
+            position: relative;
+        }
+        #box_wrap{
+            width: 4000px;
+            height: 400px;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .box{
+            width: 800px;
+            height: 400px;
+            float: left;
+            text-align: center;
+            line-height: 400px;
+            font-size: 100px;
+            font-weight: 900;
+        }
+        .btn{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+            border-radius: 50%;
+            background-color: whitesmoke;
+            z-index: 1;
+        }
+        #prev{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="mask">
+        <div class="btn" id="prev">←</div>
+        <div class="btn" id="next">→</div>
+        <div id="box_wrap">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+        </div>
+    </div>
+</body>
+</html>

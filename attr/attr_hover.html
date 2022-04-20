@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+
+            $('#box').css({
+                width: 300,
+                height: 300,
+            });
+            $('#box>img').css({
+                width: '100%',
+                height: '100%',
+                borderBox: 'block',
+                textAlign: 'center',
+                lineHeight: 300,
+                backgroundColor: 'blue',
+                fontSize: 15,
+                fontWeight: 900,
+            });
+
+            $('#box').hover(function(){
+                $('h2').text('사진이 바뀌었습니다.');
+                $('img').attr('src','배경2.jpg');
+            },
+            function(){
+                $('h2').text('마우스를 올려주세요');
+                $('img').attr('src','배경1.jpg');
+            });
+
+
+
+
+        });//end
+    </script>
+</head>
+<body>
+    <div id="box">
+        <img src="배경1.jpg" alt="">
+        <h2>마우스를 올려주세요</h2> 
+    </div>
+</body>
+</html>

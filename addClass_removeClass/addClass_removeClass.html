@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass/removeClass</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // addClass
+            // => 선택한 객체에 스타일시트에서 지정한 class형식의 속성값을 추가
+            // $('선택자').addClass('클래스명');
+
+            // removeClass
+            // => 선택한 객체에 스타일시트에서 지정한 class형식의 속성값을 제거
+            // $('선택자').removeClass('클래스명');
+
+            // hasClass
+            // => 선택한 객체에 스타일시트에서 지정한 class형식의 속성값 유무 확인
+            // $('선택자').hasClass('클래스명');
+
+            // = classList.add / remove / contains
+
+
+            $('#box2').addClass('box');
+            $('#box1').removeClass('box');
+
+            $('#box3').hover(function(){
+                $(this).addClass('box');
+            },function(){
+                $(this).removeClass('box');
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });//end
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 350px;
+            height: 350px;
+            margin: 30px;
+            border: 5px solid black;
+        }
+        .box{
+            background-color: tomato;
+            text-align: center;
+            line-height: 350px;
+            font-weight: 900;
+            font-size: 100px;
+            transform: rotateZ(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+</body>
+</html>

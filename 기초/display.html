@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // 1. 객체의 왼쪽 상단을 기준으로 크기가 커지면서 보이고
+            // 한번 더 누르면 크기가 작아지면서 사라짐
+            // => .show(시간);
+            // => .hide(시간);
+            // => .toggle(시간); show와 hide가 합쳐진 것
+            // => 시간단위 생략 가능
+
+            $('#toggle_but').click(function(){
+                $('#toggle_box').toggle(1000);
+            });
+
+            // 2. 객체의 위쪽영역에서 슬라이드 되면서 내려오고
+            // 슬라이드 되면서 올라가는 효과
+            // => .slideDown();
+            // => .slideUp();
+            // => .slideToggle();
+
+            $('#slide_but').click(function(){
+                $('#slide_box').slideToggle(1000);
+            });
+
+            // 3. 객체 제자리에서 투명도 값이 천천히 보여지고 
+            // 천천히 사라지는 효과
+            // => .faidIn(시간);
+            // => .fadeOut(시간);
+            // => .fadeToggle(시간);
+
+            $('#fade_but').click(function(){
+                $('#fade_box').fadeToggle(1000);
+            });
+
+        });//end
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .outbox{
+            width: 400px;
+            height: 500px;
+            border: 8px solid black;
+            float: left;
+            margin: 50px;
+        }
+        .but{
+            width: 100%;
+            height: 100px;
+            background-color: slategray;
+            text-align: center;
+            line-height: 100px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        .in_box{
+            width: 100%;
+            height: 400px;
+            background-color: silver;
+            text-align: center;
+            line-height: 400px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 좌측박스 -->
+    <div class="outbox">
+        <div class="but" id="toggle_but">show + hide</div>
+        <div class="in_box" id="toggle_box">show, hide, toggle</div>
+    </div>
+    <!-- 중앙박스 -->
+    <div class="outbox">
+        <div class="but" id="slide_but">slide + up + down</div>
+        <div class="in_box" id="slide_box">>slideUp slideDown slideToggle</div>
+    </div>
+    <!-- 우측박스 -->
+    <div class="outbox">
+        <div class="but" id="fade_but">fade in + out</div>
+        <div class="in_box" id="fade_box">fadeIn fadeOut fadeToggle</div>
+    </div>
+</body>
+</html>

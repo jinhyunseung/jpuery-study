@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul, li{
+    list-style: none;
+}
+#but{
+    width: 50px;
+    height: 230px;
+    background-color: lightgrey;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30px;
+}
+#but>li{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: gray;
+    border-radius: 25px;
+}
+#but>li.active{
+    background-color: azure;
+}
+section{
+    /* 행간 => js*/
+    /* 계속 변하는 값은 js로
+        1.가로, 세로
+        2.행간, lineHeight
+        3.배경색 등
+    */
+    text-align: center;
+    font-size: 150px;
+    font-weight: 900;
+    
+}
